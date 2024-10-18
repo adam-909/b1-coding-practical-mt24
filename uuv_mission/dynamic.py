@@ -1,9 +1,9 @@
 from __future__ import annotations
 from dataclasses import dataclass
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from terrain import generate_reference_and_limits
-import pandas as pd
 
 class Submarine:
     def __init__(self):
@@ -77,9 +77,9 @@ class Mission:
     @classmethod
     def from_csv(cls, file_name: str):
         data = pd.read_csv(file_name)
-        reference = data['reference'].values  # Assuming 'reference' is a column in the CSV
-        cave_height = data['cave_height'].values  # Assuming 'cave_height' is a column in the CSV
-        cave_depth = data['cave_depth'].values  # Assuming 'cave_depth' is a column in the CSV
+        reference = data['reference'].values  
+        cave_height = data['cave_height'].values  
+        cave_depth = data['cave_depth'].values  
         return cls(reference, cave_height, cave_depth)
 
 
