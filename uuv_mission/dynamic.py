@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from terrain import generate_reference_and_limits
+from .terrain import generate_reference_and_limits
 
 class Submarine:
     def __init__(self):
@@ -76,6 +76,7 @@ class Mission:
 
     @classmethod
     def from_csv(cls, file_name: str):
+        print(f"Loading mission from {file_name}")  # Debug print statement
         data = pd.read_csv(file_name)
         reference = data['reference'].values  
         cave_height = data['cave_height'].values  
